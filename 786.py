@@ -149,7 +149,7 @@ def login1():
 			
 if __name__=='__main__':
     login()
-  except requests.exceptions.ConnectionError:
+                print (logo)
 		print (W + 'No internet connection !')
 		t()
 		exb()
