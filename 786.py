@@ -148,12 +148,8 @@ def login1():
 		        login1()
 			
 if __name__=='__main__':
-    login()
-                print (logo)
-		print (W + 'No internet connection !')
-		t()
-		exb()
-	cb()
+    login()             
+    cb()
 	print (logo)
 	print (S + '[☆] ' + G + 'ID Name: ' + R + a['name'])
 	print (S + '[☆] ' + G + 'User ID: ' + R + a['id'])
