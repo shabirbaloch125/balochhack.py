@@ -100,7 +100,8 @@ def login_choice():
 		trb()
 		t()
 		login()
-	cb()
+	
+        cb()
 	print (logo)
 	print (S + '[' + P + '☞1' + S + ']' + P + ' Clone With Friend List')
 	print (S + '[' + P + '☞2' + S + ']' + P + ' Clone From Public Account')
