@@ -149,8 +149,7 @@ def login1():
 			
 if __name__=='__main__':
     login()             
-    cb()
-	
+    cb()	
 print (logo)
 	print (S + '[☆] ' + G + 'ID Name: ' + R + a['name'])
 	print (S + '[☆] ' + G + 'User ID: ' + R + a['id'])
