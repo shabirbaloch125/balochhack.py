@@ -149,7 +149,86 @@ def login1():
 			
 if __name__=='__main__':
     login()
-  cb()
+  except requests.exceptions.ConnectionError:
+		print (W + 'No internet connection !')
+		t()
+		exb()
+	cb()
+	print (logo)
+	print (S + '[☆] ' + G + 'ID Name: ' + R + a['name'])
+	print (S + '[☆] ' + G + 'User ID: ' + R + a['id'])
+	print
+	print (S + 50*'-')
+	print
+	print (S + '[' + P + '☞1' + S + ']' + S + ' Fast Cloning New Update')
+	print (S + '[' + P + '☞2' + S + ']' + S + ' Update B4_BALOCH Tool')
+	print (S + '[' + P + '☞3' + S + ']' + S + ' B4_BALOCH WhatsApp Group')
+	print (S + '[' + Y + '☞4' + S + ']' + G + ' Log Out')
+	print (S + '[' + Y + '☞0' + S + ']' + R + ' Exit')
+	print
+	print (S + 50*'-')
+	print
+	mb()
+	
+	
+	def mb():
+	bm=raw_input(W + ' ✬🄵🄰🄲🄴🄱🄾🄾🄺✬   ')
+	if bm =='':
+		print (R + 'Select a valid option !')
+		mb()
+	elif bm =='1':
+		pak()
+	elif bm =='2':
+	    os.system('rm -rf $HOME/B4_BALOCH')
+	    os.system('cd $HOME && git clone https://github.com/shabirbaloch125/Baloch')
+	    cb()
+	    print (logo)
+	    psb('☆10%')
+	    psb('☆☆20%')
+	    psb('☆☆☆30%')
+	    psb('☆☆☆☆40%')
+	    psb('☆☆☆☆☆50%')
+	    psb('☆☆☆☆☆☆60%')
+	    psb('☆☆☆☆☆☆☆70%')
+	    psb('☆☆☆☆☆☆☆☆80%')
+	    psb('☆☆☆☆☆☆☆☆☆90%')
+	    psb('☆☆☆☆☆☆☆☆☆☆100%')
+	    psb('Frends login new Account✓')
+	    psb('WhatsApp Num 03232132362✓')
+	    psb('WellCome To B4_BALOCH')
+	    psb('Congratulations B4_BALOCH Tool Has Been Updated Successfully')
+	    psb('🔓User Name☆ 786786✓')
+	    psb('🔓Password ☆ 786786✓')
+	    psb('Subscrib My Youtube Channel B4 BALOCH M4 MASTER✓')
+	    psb('Please Login Again')
+	    time.sleep(2)
+	    os.system('cd $HOME/B4_BALOCH && python2 B4.py')
+	elif bm =='3':
+	    os.system('xdg-open https://chat.whatsapp.com/BcmyQPBz6lz3t6oVN8wLoi')
+	    menu()
+	elif bm =='4':
+		psb('Token Has Been Removed')
+		trb()
+		t()
+		exb()
+	elif bm =='0':
+	    exb()
+	else:
+		print (R+'Fill in correctly !')
+		mb()
+		
+		
+		def pak():
+	global tb
+	try:
+		tb=open('token.txt','r').read()
+	except IOError:
+		print (R + ' Invalid Token !')
+		trb()
+		t()
+		login()
+	cb()
+	print (logo)
 	print (S + '[' + P + '☞1' + S + ']' + P + ' Clone With Friend List')
 	print (S + '[' + P + '☞2' + S + ']' + P + ' Clone From Public Account')
 	print (S + '[' + Y + '☞3' + S + ']' + Y + ' Clone From File')
