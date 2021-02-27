@@ -71,32 +71,50 @@ def t():
     time.sleep(1)
     
 def login():
-    os.system('clear')
-    try:
-        toket = open('....', 'r')
-        os.system('python2 .README.md')
-    except (KeyError,IOError):
-        os.system('rm -rf ....')
-        os.system('clear')
-        print (logo)
-        print ('[1] Login With Email/Number and Password')
-        print ('[2] Login With Access Token')
-        print (50*'-')
-        login_choice()
-        
-def login_choice():
-    bch = raw_input('\n ====>  ')
-    if bch =='':
-        print ('[!] Fill in correctly')
-        mb()
-
-
-    def pak():
-	global tb
+	cb()
+	try:
+		tb=open('token.txt', 'r')
+		menu() 
+	except (KeyError,IOError):
+		cb()
+		print (logo)
+		print (R + '◈━━━━▷' + S + ' Login With ✬🄵🄰🄲🄴🄱🄾🄾🄺✬ ' + R + '◁━━━━◈')
+		print
+		id=raw_input(S + '[☆] ' + S + 'Email: ' + G +'')
+		pwd=getpass.getpass(S + '[♡] ' + R + 'Password : ')
+		data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(id)+"&locale=en_US&password="+(pwd)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")
+		z=json.load(data)
+		if 'access_token' in z:
+		    st = open("token.txt", "w")
+		    st.write(z["access_token"])
+		    st.close()
+		    print (S + '[☆]' + Y + ' Login successfull 100% ✓')
+		    os.system('xdg-open https://www.youtube.com/channel/UCAGKWM8EwDFZ9sP8CdJhGBA')
+		    menu()
+		else:
+		    if "www.facebook.com" in z["error_msg"]:
+		        print (R + 'Account has a checkpoint !')
+		        t()
+		        login()
+		    else:
+		        print (R + 'number/user id/ password is wrong !')
+		        trb()
+		        t()
+		        login()
+def menu():
+	cb()
 	try:
 		tb=open('token.txt','r').read()
 	except IOError:
-		print (R + ' Invalid Token !')
+		print (R + 'Token Invalid !')
+		trb()
+		t()
+		login()
+	try:
+		otw=requests.get('https://graph.facebook.com/me?access_token='+tb)
+		a=json.loads(otw.text)
+	except KeyError:
+		print (G + 'Account has a checkpoint !')
 		trb()
 		t()
 		login()
