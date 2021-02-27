@@ -150,7 +150,6 @@ def login1():
 if __name__=='__main__':
     login()
   cb()
-	print (logo)
 	print (S + '[' + P + '☞1' + S + ']' + P + ' Clone With Friend List')
 	print (S + '[' + P + '☞2' + S + ']' + P + ' Clone From Public Account')
 	print (S + '[' + Y + '☞3' + S + ']' + Y + ' Clone From File')
