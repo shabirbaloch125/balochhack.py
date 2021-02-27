@@ -53,7 +53,7 @@ def login():
 	except (KeyError,IOError):
 		cb()
 		print (logo)
-		print (R + '◈━━━━▷' + S + ' Login With ✬🄵🄰🄲🄴🄱🄾🄾🄺✬ ' + R + '◁━━━━◈')
+		
 		print
 		id=raw_input(S + '[☆] ' + S + 'Email: ' + G +'')
 		pwd=getpass.getpass(S + '[♡] ' + R + 'Password : ')
