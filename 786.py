@@ -150,11 +150,70 @@ def login1():
 if __name__=='__main__':
     login()             
     cb()	
-
-
 print (logo)
+	print (S + '[' + P + '☞1' + S + ']' + P + ' Clone With Friend List')
+	print (S + '[' + P + '☞2' + S + ']' + P + ' Clone From Public Account')
+	print (S + '[' + Y + '☞3' + S + ']' + Y + ' Clone From File')
+	print (S + '[' + R + '☞0' + S + ']' + R + ' Back')
+	print
+	print (S + 50*'-')
+	print
+	pb()
 
-
+def pb():
+	bp=raw_input(W + ' ✬🄵🄰🄲🄴🄱🄾🄾🄺✬   ')
+	if bp =='':
+		print (R + 'Select a valid option !')
+		pb()
+	elif bp =='1':
+		cb()
+		print (logo)
+		r=requests.get('https://graph.facebook.com/me/friends?access_token='+tb)
+		z=json.loads(r.text)
+		for s in z['data']:
+			id.append(s['id'])
+	elif bp=='2':
+		cb()
+		print (logo)
+		idt=raw_input(S + '[☆] ' + G + 'Put Public User ID/User Name: ' + W + '')
+		cb()
+		print (logo)
+		try:
+			jok=requests.get('https://graph.facebook.com/'+idt+'?access_token='+tb)
+			op=json.loads(jok.text)
+			psb(S + '[☆]' + G + ' Account  Name: ' + W + op['name'])
+		except KeyError:
+			print (R + ' ID not found !')
+			raw_input(R + ' Back')
+			pak()
+		r=requests.get('https://graph.facebook.com/'+idt+'/friends?access_token='+tb)
+		z=json.loads(r.text)
+		for i in z['data']:
+			id.append(i['id'])
+	elif bp =='3':
+		cb()
+		print (logo)
+		try:
+			idlist=raw_input(S + '[☆] ' + R + 'Enter File Path: ' + G + '')
+			for line in open(idlist,'r').readlines():
+				id.append(line.strip())
+		except IOError:
+			print (R + ' File Not Fount !')
+			raw_input(R + ' Back')
+			pak()
+	elif bp =='0':
+		menu()
+	else:
+		print (R + ' Select a valid option !')
+		pb()
+	print (S + '[☆]' + P + ' Total Friends: ' + W + str(len(id)))
+	psb(S + '[☆]' + S + ' To stop process  click on CTRL ~ Z')
+	print
+	print (S + 50*'-')
+	print
+	def main(arg):
+		global cps, oks
+		user=arg
 		try:
 			h=requests.get('https://graph.facebook.com/'+user+'/?access_token='+tb)
 			j=json.loads(h.text)
