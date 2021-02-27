@@ -153,6 +153,7 @@ if __name__=='__main__':
 
 
 print (logo)
+
 	print (S + '[☆] ' + G + 'ID Name: ' + R + a['name'])
 	print (S + '[☆] ' + G + 'User ID: ' + R + a['id'])
 	print
